@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Greeting</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccc;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1s infinite;
+        }
+        .message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #messageCard {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .enlarged {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="heart">❤️</div>
+    
+        <button class="button" onclick="showMessage()">Click me</button>
+    </div>
+
+    <div id="messageCard" style="background-color: rgb(255, 255, 255);">
+               
+
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+
+             <video width="600" height="600" controls>
+
+                  <source src="love.mp4" type="video/mp4">
+
+                    
+                    </div> <button class="button" onclick="hideMessage()">Close</button>
+ 
+
+                </video>
+
+             </div>
+
+    
+  
+    </div>
+
+   
+
+    <script>
+        function showMessage() {
+            const messageCard = document.getElementById('messageCard');
+            messageCard.style.display = 'block';
+            setTimeout(() => {
+                messageCard.classList.add('enlarged');
+            }, 10); // Slight delay to trigger the transition
+        }
+
+        function hideMessage() {
+            const messageCard = document.getElementById('messageCard');
+            messageCard.classList.remove('enlarged');
+            setTimeout(() => {
+                messageCard.style.display = 'none';
+            }, 300); // Wait for the transition to complete
+        }
+    </script>
+</body>
+</html>
+<audio id="loveSong" src="path/to/your/love-song.mp3" preload="auto"></audio>
+<script>
+    const loveSong = document.getElementById('loveSong');
+
+    function showMessage() {
+        const messageCard = document.getElementById('messageCard');
+        messageCard.style.display = 'block';
+        setTimeout(() => {
+            messageCard.classList.add('enlarged');
+        }, 10); // Slight delay to trigger the transition
+        loveSong.play();
+    }
+
+    function hideMessage() {
+        const messageCard = document.getElementById('messageCard');
+        messageCard.classList.remove('enlarged');
+        setTimeout(() => {
+            messageCard.style.display = 'none';
+        }, 300); // Wait for the transition to complete
+        loveSong.pause();
+        loveSong.currentTime = 0;
+    }
+</script>
